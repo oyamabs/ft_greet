@@ -26,7 +26,7 @@ Edit the corresponding script for your system. Put your app UID in the APP_ID va
 Run this command
 
 ```bash
-$ mkdir -p ~/.local/bin; cp ./ft_greet_$(uname -r).sh ~/.local/bin/ft_greet.sh; chmod +x ~/.local/bin/ft_greet.sh
+$ mkdir -p ~/.local/bin; cp ./ft_greet_$(uname).sh ~/.local/bin/ft_greet.sh; chmod +x ~/.local/bin/ft_greet.sh
 ```
 
 You can now call the script from your shell config file and optionally alias `clear` to call the script too.

@@ -35,7 +35,7 @@ WALLET=$(echo $RAW_JSON | jq .wallet)
 LOCATION=$(echo $RAW_JSON | jq .location | sed s/\"//g)
 CAMPUS=$(echo $RAW_JSON | jq '.campus | .[] | .name' | sed s/\"//g)
 FINISHED_PROJ=$(echo $RAW_JSON | jq '.projects_users | length')
-LOGTIMES=$(curl -s -G -H "Authorization: Bearer $TOKEN" "https://api.intra.42.fr/v2/users/$USER/locations" --data-urlencode "range[begin_at]=$(date -u -Idate),$(date -u -Idate -v+1d)")
+LOGTIMES=$(curl -s -G -H "Authorization: Bearer $TOKEN" "https://api.intra.42.fr/v2/users/$USER/locations" --data-urlencode "range[begin_at]=$(date -u -I),$(date -u -I -d "+1 days")")
 TOTAL_SECONDS=$(echo "$LOGTIMES" | jq '
   def parse_date: sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601;
   [ .[] | 
